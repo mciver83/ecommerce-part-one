@@ -1,0 +1,29 @@
+<header>
+	<div id="logo">
+		<h1>WSS</h1>
+	</div>
+	<div id="header--middle">
+		<h1>WE SELL STUFF</h1>
+	</div>
+	<div id="navbar">
+		<a href='#/'>products</a>
+		<a href='/products/cart'>my cart</a>
+	</div>
+</header>
+<main>
+	<h2>welcome to our products page!</h2>
+
+	<div class="flex-row-wrap products">
+		<div class="product" ng-repeat="product in products">
+			<div class="product-info">
+				<div class="product--header">
+					<h3>{{product.product}}</h3>
+				</div>
+				<p>{{product.description}}</p>
+				<p class="price">${{product.price}}</p>
+				<i ng-click="addToCart(product)" class="fa fa-cart-plus fa-2x"></i>
+			</div>
+			
+		</div>
+	</div>
+</main>

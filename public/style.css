@@ -1,0 +1,148 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+}
+
+a, a:hover, a:visited {
+	text-decoration: none;
+	color: inherit;
+}
+
+html {
+	position: absolute;
+	top: 0;
+	/*background: rgb(90, 255, 120);*/
+	background-image: url('http://www.bestfreejpg.com/wp-content/uploads/2014/07/chameleon_adaptation.jpg')
+}
+
+body {
+	/*background: rgba(255,255,255,0.1);*/
+}
+
+main {
+	margin-top: 65px;
+	padding: 10px 20px;
+	text-align: center;
+}
+
+header {
+	padding: 20px;
+	position: fixed;
+	top:0;
+	left:0;
+	height: 65px;
+	width: 100%;
+	background: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#logo {
+	font-size: 30px;
+	flex: 1;
+}
+
+#header--middle {
+	flex: 1;
+}
+
+#navbar {
+	flex: 1;
+}
+
+#navbar a {
+	margin: 30px;
+	text-transform: uppercase;
+}
+
+
+.products {
+	width: 80%;
+	margin: auto;
+	background: rgba(0,0,0,0.7);
+}
+
+.product {
+	position: relative;
+}
+
+#thumbtack {
+	position: absolute;
+}
+
+.product-info {
+	padding: 10px;
+	margin: 5px;
+	width: 180px;
+	height: 250px;
+	text-align: center;
+	background: white;
+	color: black;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	border-radius: 5px;
+	font-size: 14px;
+}
+
+.price {
+	border: dotted 2px red;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.product--header {
+	border-bottom: 1px solid black;
+	width: 100%;
+	height: 65px;
+	text-transform: uppercase;
+}
+
+.product-table {
+	margin: 10px;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.product-table span, .product-table button {
+	margin: 10px;
+}
+
+.product-table span {
+	width: 200px;
+	overflow: scroll;
+}
+
+.flex-row-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex:start;
+}
+
+.flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+input, textarea {
+	width: 250px;
+	margin: 5px;
+}
+
+input {
+	height: 25px;
+}
+
+button {
+	width: 70px;
+}

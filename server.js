@@ -2,73 +2,34 @@ var express = require('express'),
 	app = express(),
 	bodyParser = require('body-parser'),
 	cors = require('cors'),
-	mongojs = require('mongojs'),
+	mongoose = require('mongoose'),
 	port = 9001;
 	
 
-var db = mongojs('ecommerce', ['products']);
+var mongoUri = 'mongodb://localhost:27017/ecommerce';
+var ProductCtrl = require('./controllers/ProductCtrl')
+
+mongoose.connect(mongoUri);
+mongoose.connection.once('open', function(){
+	console.log('Connected to Mongo at' + mongoUri);
+})
 
 
 
 app.use(bodyParser.json());
 app.use(cors());
 
-app.post('/api/products', function(req, res){
+app.use(express.static(__dirname + '/public'))
 
-	db.products.save(req.body, function(err, response){
-		if(err){
-			res.status(500).json(err);
-		} else {
-			res.send(response);
-		};
-	});
-});
 
-app.get('/api/products', function(req, res){
-	if(req.query._id){
-    	req.query._id = mongojs.ObjectId(req.query._id);
-    }
-	db.products.find(req.query, function(err, response){
-		if(err){
-			res.status(500).json(err);
-		} else {
-			res.send(response);
-		};
-	});
-});
 
-app.put('/api/products', function(req, res){
-	if(!req.query.id){
-		res.status(500).send('you must enter the id of the product you wnat to update')
-	} else {
-		db.products.findAndModify({
-			query: { _id: mongojs.ObjectId(req.query.id)},
-			update: { $set: req.body }
-		}, function(err, response){
-			if(err){
-				res.status(500).json(err);
-			} else {
-				res.send(response);
-			}
-		});
-	};
-});
+app.post('/api/products', ProductCtrl.createProduct);
 
-app.delete('/api/products', function(req, res){
-	if(!req.query.id){
-		res.status(500).json(err);
-	} else {
-		db.products.remove({
-			_id: mongojs.ObjectId(req.query.id)
-		}, function(err, response){
-			if(err){
-				res.status(500).json(err);
-			} else {
-				res.send(response);
-			};
-		});
-	};
-});
+app.get('/api/products', ProductCtrl.getProducts);
+
+app.put('/api/products', ProductCtrl.updateProduct);
+
+app.delete('/api/products', ProductCtrl.deleteProduct);
 
 
 app.listen(port, function(){
