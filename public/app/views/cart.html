@@ -1,0 +1,28 @@
+<header>
+	<div id="logo">
+		<h1>WSS</h1>
+	</div>
+	<div id="header--middle">
+		<h1>WE SELL STUFF</h1>
+	</div>
+	<div id="navbar">
+		<a href='#/'>products</a>
+		<a href='#/cart'>my cart</a>
+	</div>
+</header>
+
+<main>
+	<h1>{{user.name}}'s CART</h1>
+
+	<div class="cart">
+		<div class="cart--item" ng-repeat="item in cart">
+			<div><h3>{{item.product.product}}</h3></div>
+			<div>quatity: <input id="quantity" type=number ng-model="item.quantity" ng-change="updateCartItemQuantity(item._id, item.quantity)"></div>
+			<div>${{item.total}}</div>
+			<div><i class="fa fa-times" ng-click="deleteItem(item._id)"></i></div>
+		</div>
+		<div class="border--red"> <strong>Total cost: ${{total}}</strong></div>
+		<button ng-click="createOrder()">place order</button>
+	</div>
+</main>
+

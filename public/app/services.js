@@ -41,12 +41,41 @@ app.service('mainService', function($http){
 			}
 		})
 	}
+})
 
-	this.addToCart = function(product){
+app.service('userService', function($http){
+
+	this.getUser = function(){
+		return $http({
+			method: 'GET',
+			url: 'http://localhost:9001/api/users'
+		})
+	}
+
+	this.addToCart = function(productId){
+		return $http({
+			method: 'POST',
+			url: 'http://localhost:9001/api/users/558cc563daab405523162191',
+			data: {
+				product: productId
+			}
+		})
+	}
+
+	this.updateCartItemQuantity = function(itemId, quantity){
 		return $http({
 			method: 'PUT',
-			url: 'http://localhost:9001/api/cart',
-			data: product
+			url: 'http://localhost:9001/api/users/558cc563daab405523162191/' + itemId,
+			data: {
+				'cart.$.quantity': quantity
+			}
+		})
+	}
+
+	this.deleteItem = function(itemId, quantity){
+		return $http({
+			method: 'DELETE',
+			url: 'http://localhost:9001/api/users/558cc563daab405523162191/' + itemId,
 		})
 	}
 })

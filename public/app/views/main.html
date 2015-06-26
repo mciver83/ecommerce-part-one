@@ -7,7 +7,7 @@
 	</div>
 	<div id="navbar">
 		<a href='#/'>products</a>
-		<a href='/products/cart'>my cart</a>
+		<a href='#/cart'>my cart</a>
 	</div>
 </header>
 <main>
@@ -21,7 +21,8 @@
 				</div>
 				<p>{{product.description}}</p>
 				<p class="price">${{product.price}}</p>
-				<i ng-click="addToCart(product)" class="fa fa-cart-plus fa-2x"></i>
+				<i ng-click="addToCart(product._id, product, product.inCart)" class="fa fa-cart-plus fa-2x" ng-show="!product.inCart"></i>
+				<p ng-show="product.inCart">added to cart</p>
 			</div>
 			
 		</div>

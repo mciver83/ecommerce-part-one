@@ -67,10 +67,12 @@ header {
 	width: 80%;
 	margin: auto;
 	background: rgba(0,0,0,0.7);
+	border-radius: 5px;
 }
 
 .product {
 	position: relative;
+	width: 20%;
 }
 
 #thumbtack {
@@ -80,10 +82,10 @@ header {
 .product-info {
 	padding: 10px;
 	margin: 5px;
-	width: 180px;
-	height: 250px;
+	/*width: 180px;*/
+	height: 250px;*/
 	text-align: center;
-	background: white;
+	background: white;*/
 	color: black;
 	display: flex;
 	flex-direction: column;
@@ -123,15 +125,38 @@ header {
 	overflow: scroll;
 }
 
+.border--red {
+	border-top: 1px solid red;
+	padding: 10px;
+}
+
 .flex-row-wrap {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: flex:start;
+	justify-content: flex-start;
 }
 
 .flex-column {
 	display: flex;
 	flex-direction: column;
+}
+
+.cart {
+	background: white;
+	border-radius: 5px;
+	width: 50%;
+	margin: auto;
+}
+
+.cart--item {
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid rgb(180,180,180);
+}
+
+.cart--item div {
+	margin: 5px;
+	flex: 1;
 }
 
 input, textarea {
@@ -143,6 +168,13 @@ input {
 	height: 25px;
 }
 
+#quantity {
+	width: 50px;
+	font-size: 16px
+}
+
 button {
-	width: 70px;
+	height: 40px;
+	font-size: 18px;
+	/*width: 70px;*/
 }
